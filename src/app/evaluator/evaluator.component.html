@@ -1,0 +1,52 @@
+<div class=" d-flex justify-content-around">
+  <button class="btn btn-primary " *ngFor="let evaluator of EvaluatorsArr; let i = index" (click)="reqProfiles(evaluator);">{{evaluator.evalname}}</button>
+</div>
+<div *ngIf='evaluatorProfilesArr'>
+  <div class="card color"  *ngFor="let e_profile of evaluatorProfilesArr; let i = index" (click)="showModel(e_profile);" data-toggle="modal" data-target="#exampleModal"> 
+    <div class="card-body">
+      <h4 class="card-title flow">{{e_profile.name}}</h4>
+      <h6 class="card-title flow">Emp Id: {{e_profile.id}}</h6>
+      <p class="card-text flow">Name: {{e_profile.name}}</p>
+      <p class="card-text flow">Vendor: {{e_profile.profileorigin}}</p>
+      <p class="card-text flow">Location: {{e_profile.location}}</p>
+      <p class="card-text flow">Skills: {{e_profile.skill1}},{{e_profile.skill2}},{{e_profile.skill3}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form #newForm="ngForm">
+        <div class="modal-header center">
+          <h5 class="modal-title" id="exampleModalLabel" class="flow" *ngIf="data">{{data.name}}</h5>
+          <h6 class="modal-title" id="exampleModalLabel" class="flow" *ngIf="data">{{data.id}}</h6>
+          <div class="form-group col-md-4" >
+            <label for="inputState">Status</label>
+            <select id="inputState" class="form-control" #selectCtrl required (change)="select($event.target.value);">
+              <option selected value="Choose status">Choose status</option>
+              <option >hired</option>
+              <option >not hired</option>
+              <option >Processing</option>
+            </select>
+            <span *ngIf="selectvalue" style="color: red; font-size: 0.9rem;">Status can not be empty</span>
+          </div>        
+          <div class="md-form mb-4 pink-textarea active-pink-textarea">
+            <label for="form18">Response /Comments </label>
+            <textarea id="form18" class="md-textarea form-control" rows="3" #textareaCtrl required (keyup)="textarea($event.target.value);"></textarea>
+            <span *ngIf="textValue" style="color: red; font-size: 0.9rem;">Response can not be empty</span>
+
+          </div>
+          <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button> -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" [disabled]="buttonClick" data-dismiss="modal" (click)=sendUpdatedProfile(); >Save changes</button>
+        </div>
+        <span *ngIf="buttonClick" style="color: red; font-size: 0.9rem;">Status or Response can not be empty</span>
+      </form>
+    </div>
+  </div>
+</div>

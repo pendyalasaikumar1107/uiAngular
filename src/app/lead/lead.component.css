@@ -1,0 +1,18 @@
+.table{
+    background-color: #f0ffff91;
+}
+
+/* .status{
+    border-radius: 50%;
+    background-color: gray;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    border-top-width: 0px;
+    width: 70px;
+    height: 60px;   
+} */
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: red;
+  }

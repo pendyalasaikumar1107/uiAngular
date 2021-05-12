@@ -1,0 +1,42 @@
+form { 
+    margin: 0 auto; 
+    /* width: 35%; */
+    padding-left: 1rem ;
+    height: auto;
+}
+.forButton{
+    height: 20rem;
+}
+/* .size{
+width: 90%;
+} */
+.error{
+    color: red;
+    font-family: serif;
+}
+.size{
+    /* float: left; */
+    width: 18rem;
+    margin-left: 1rem;
+}
+.btn.disabled, .btn:disabled {
+    cursor: not-allowed;
+    display: inline-block;
+    background-color: gray;
+    border-color: red;
+}
+.form-group{
+    height: 5rem;
+    float: left;
+}
+label{
+    margin-left: 1rem;
+}
+.form-check{
+    color: #dc3545;
+    background-color: #f8f9fa;
+    font-family: serif;
+}
+.form-group div{
+    margin-left: 1rem;
+}

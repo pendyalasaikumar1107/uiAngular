@@ -1,0 +1,62 @@
+<app-filter></app-filter>
+<br>
+<div class="chart">
+  <app-chart [dataArr] = 'dataArr'></app-chart>
+</div>
+<br>
+<table class="table">
+  <thead Sclass="thead-light">
+    <tr>
+      <!-- <th scope="col" *ngFor="let key of Keys">{{key}}</th> -->
+      <th>ID</th>
+      <th>Name</th>
+      <th>vendor</th>
+      <th>Contact</th>
+      <th>Location</th>
+      <th>Experience</th>
+      <th>Select Evaluator</th>
+      <th>Submit</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let profile of Profiles | paginate: { itemsPerPage: 5, currentPage: page, totalItems : totalLength } let i = index">
+      <td>{{profile.id}}</td>
+      <td>{{profile.name}}</td>
+      <td>{{profile.vendor}}</td>
+      <td>{{profile.mobileno}}</td>
+      <td>{{profile.location}}</td>
+      <td>{{profile.experience}}</td>
+      <td><select class="form-control flow ctrl" id="sel1" #selectCtrl required [(ngModel)]="profile.evalname" (change)="handle($event.target.value);">
+        <option value=""></option>
+        <option *ngFor="let evaluator of EvaluatorsArr; let j = index" >{{evaluator.evalname}}</option>
+      </select></td>
+      <span *ngIf="selectCtrl.invalid && (selectCtrl.dirty || selectCtrl.touched)" class="error">
+        <span *ngIf="selectCtrl.errors.required">
+          Skills is required.
+        </span>
+      </span>
+      <td>
+          <button class="btn btn-primary btn-sm flow" [disabled]="selectCtrl.invalid" (click)="updateEval(profile);">Update</button>
+      </td>
+      <td class="status">{{profile.status}}</td>
+    </tr>
+  </tbody>
+</table>
+<pagination-controls class="text-center my-pagination" (pageChange)="page = $event"></pagination-controls>
+
+<!-- 
+Rejection reason
+Too junior
+
+
+Competency gap
+
+
+Skills mismatch
+
+
+Associate not Available
+
+
+Associate not willing -->
