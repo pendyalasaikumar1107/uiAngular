@@ -2,17 +2,51 @@
     background-color: #f0ffff91;
 }
 
-/* .status{
-    border-radius: 50%;
-    background-color: gray;
-    padding: 0;
-    text-align: center;
-    vertical-align: middle;
-    border-top-width: 0px;
-    width: 70px;
-    height: 60px;   
-} */
-
 .my-pagination /deep/ .ngx-pagination .current {
     background: red;
-  }
+}
+
+nav{
+    display: flex;
+}
+nav ul{
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+}
+li{
+    list-style-type: none;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    padding: 0.8rem;
+    border-radius: 25%;
+}
+li:hover{
+    background-color: #1497ad;
+    cursor: pointer;
+    color: whitesmoke;
+}
+nav li:focus{
+    background-color: #1497ad;
+    cursor: pointer;
+    color: whitesmoke;
+}
+.nav-link{
+    color: black;
+    padding: 0;
+}
+.nav-link:hover{
+    color: whitesmoke;
+}
+#MonthSelect{
+    height: 2.3rem;
+    margin: 1rem;
+    margin-left: 0;
+    width: 3rem;
+}
+span{
+    margin-top: 1.3rem;
+    color: black;
+    font-weight: bold;
+}

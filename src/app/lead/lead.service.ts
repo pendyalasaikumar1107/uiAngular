@@ -8,7 +8,8 @@ export class LeadService {
     constructor(private http:HttpClient){
     }
 
-    getProfiles(){
+    getProfilesByDate(date){
+        
         
     }
 }

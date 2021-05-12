@@ -35,3 +35,10 @@
   .center{
     align-items: center;
   }
+.card-body{
+  background-color: gray;
+  color: white;
+}
+.card{
+  margin: 1rem;
+}

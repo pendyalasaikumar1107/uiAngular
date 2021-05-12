@@ -32,9 +32,12 @@ width: 90%;
 label{
     margin-left: 1rem;
 }
-.form-check{
-    color: #dc3545;
-    background-color: #f8f9fa;
+.label{
+    color: whitesmoke;
+}
+div .form-check{
+    background-color: #efef00e6;
+    color: #f51515;
     font-family: serif;
 }
 .form-group div{

@@ -8,6 +8,7 @@ const routes: Routes = [
   {path:"", component:LeadComponent},
   {path: "rmg", component: RMGComponent},
   {path: "lead", component: LeadComponent},
+  {path: "lead/:date", component: LeadComponent},
   {path: "evaluate", component: EvaluatorComponent},
   {path: "evaluate/:id", component: EvaluatorComponent}
 ];

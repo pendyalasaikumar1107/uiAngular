@@ -1,3 +1,4 @@
+import { ChartComponent2 } from './lead/chart2/chart2.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -12,7 +13,7 @@ import { NavComponent } from './nav/nav.component';
 import { ToasterModule } from 'angular2-toaster';
 import { ChartComponent } from './lead/chart/chart.component';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { FilterComponent } from './lead/filter/filter.component';
+import { FilterchartComponent } from './lead/filterchart/filterchart.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FilterComponent } from './lead/filter/filter.component';
     RMGComponent,
     NavComponent,
     ChartComponent,
-    FilterComponent
+    ChartComponent2,
+    FilterchartComponent,
   ],
   imports: [
     BrowserModule,
