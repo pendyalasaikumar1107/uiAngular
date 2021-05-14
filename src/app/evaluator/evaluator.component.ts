@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { AppService } from '../app.service';
 
 @Component({
@@ -47,7 +48,7 @@ export class EvaluatorComponent implements OnInit {
   //     });
   // }
 
-  constructor(public http:HttpClient, public service:AppService) { }
+  constructor(public http:HttpClient, public service:AppService, private ts:ToastrService) { }
 
   
   ngOnInit(): void {
@@ -86,11 +87,11 @@ export class EvaluatorComponent implements OnInit {
     console.log("DATA ",this.updatedProfile['comments']);
     if(this.updatedProfile['status']==='hired' || this.updatedProfile['status'] === 'not hired'){
       if(this.updatedProfile['comments'] ===''){
-        alert("Please fill comments and status");
+        this.ts.warning("Please fill status and comments",'title');
       }
       else{
         this.http.put("http://localhost:8080/statusupdate",this.updatedProfile,{responseType: 'text' }).subscribe((data)=>{
-          setTimeout(()=>{alert(data);},500);
+          setTimeout(()=>{this.ts.success(data);},500);
           // this.reqProfiles(this.evalid['evalid']);
           this.service.getEval(this.evalid['evalid']).subscribe((evaluatorData)=>{
             this.evaluatorProfilesArr = Object.keys(evaluatorData).map(index => {

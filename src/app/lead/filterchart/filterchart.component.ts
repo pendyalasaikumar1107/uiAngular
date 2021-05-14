@@ -19,7 +19,7 @@ ngDoCheck(): void {
   //Called every time that the input properties of a component or a directive are checked. Use it to extend change detection by performing a custom check.
   //Add 'implements DoCheck' to the class.
   this.totalHired = this.dataArr;
-  // console.log("leng",this.dataArr,"Hired",this.totalHired);
+//   console.log("leng",this.dataArr,"Hired",this.totalHired);
   this.text = this.dataArr[1];
 }
 ngOnInit(): void {
@@ -27,10 +27,10 @@ ngOnInit(): void {
       var myChart = new Chart("myChart", {
           type: 'bar',
           data: {
-              labels: ['Total Profiles', 'Hired', 'Not Hired'],
+              labels: ['Total Profiles', 'Hired', 'Not Hired','Waiting'],
               datasets: [{
                   label: this.totalHired[3]+ 'Filter',
-                  data: [this.totalHired[0],this.totalHired[1],this.totalHired[2]],
+                  data: [this.totalHired[0],this.totalHired[1],this.totalHired[2],this.totalHired[4]],
                   backgroundColor: [
                       'rgba(255, 99, 132, 0.2)',
                       'rgba(54, 162, 235, 0.2)',

@@ -24,4 +24,11 @@ export class AppService {
     public getProfilesByDate(date){
         return this.http.get("http://localhost:8080/date/"+date);
     }
+
+    public getTotalProfilesinMonth(data){
+        return this.http.get("http://localhost:8080/month/"+data);
+    }
+    public getProfilesByMonth(data){
+        return this.http.get("http://localhost:8080/monthprofiles/"+data);
+    }
 }

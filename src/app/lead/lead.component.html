@@ -2,30 +2,40 @@
 <nav>
   <ul (click)="gettodayValue($event)">
     <li><span class="colr">today</span></li>
-    <li><span class="colr">weekly</span></li>
+    <!-- <li><span class="colr">weekly</span></li> -->
   </ul>
-  <span>Monthly</span><select id="MonthSelect" placeholder="Monthly" (change)="MonthFilter($event.target.value);">
-    <option name="" value="" style="display:none;">MM</option>
+  <select id="MonthSelect" placeholder="Monthly" (change)="MonthFilter($event.target.value);">
+    <option name="" value="" style="display:none;">Monthly</option>
     <option name="January" value="01">January</option>
     <option name="February" value="02">February</option>
-  <option name="March" value="03">March</option>
-  <option name="April" value="04">April</option>
-  <option name="May" value="05">May</option>
-  <option name="June" value="06">June</option>
-  <option name="July" value="07">July</option>
-  <option name="August" value="08">August</option>
-  <option name="September" value="09">September</option>
-  <option name="October" value="10">October</option>
-  <option name="November" value="11">November</option>
-  <option name="December" value="12">December</option>
-</select>
+    <option name="March" value="03">March</option>
+    <option name="April" value="04">April</option>
+    <option name="May" value="05">May</option>
+    <option name="June" value="06">June</option>
+    <option name="July" value="07">July</option>
+    <option name="August" value="08">August</option>
+    <option name="September" value="09">September</option>
+    <option name="October" value="10">October</option>
+    <option name="November" value="11">November</option>
+    <option name="December" value="12">December</option>
+  </select>
+  <p (click)='clearFilter();'>clear filter</p>
 </nav>
 <br>
 <div class="chart d-flex justify-content-around">
   <app-chart *ngIf="hidechart" [dataArr] = 'dataArr'></app-chart>
-  <app-chart2 *ngIf="hidechart" [dataArr1] = 'dataArr1' ></app-chart2>
-  <app-filterchart *ngIf='!hidechart' [dataArr] = 'todayData'>
-  </app-filterchart>
+  <app-chart2 *ngIf = "hidechart" [dataArr1] = 'dataArr1' ></app-chart2>
+  <!-- Today Filter Open-->
+  <app-filterchart *ngIf='TodayShow' [dataArr] = 'todayData'></app-filterchart>
+  <app-chart2 *ngIf="TodayShow" [dataArr1] = 'dataArr2' ></app-chart2>
+  <!-- Today Filter Close -->
+  <!-- Monthly Filter Open -->
+  <app-filterchart *ngIf='MonthShow' [dataArr] = 'MonthData'></app-filterchart>
+  <app-chart2 *ngIf = "MonthShow" [dataArr1] = 'MonthArr' ></app-chart2>
+
+  <!-- <app-chart2 *ngIf="MonthShow" [dataArr1] = 'MonthArr' ></app-chart2> -->
+  <!-- Monthly Filter Close -->
+
 </div>
 <br>
 <table class="table">
@@ -51,13 +61,13 @@
       <td>{{profile.mobileno}}</td>
       <td>{{profile.location}}</td>
       <td>{{profile.experience}}</td>
-      <td><select class="form-control flow ctrl" id="sel1" #selectCtrl required [(ngModel)]="profile.evaluator" (change)="handle($event.target.value);">
+      <td><select class="form-control flow ctrl" id="sel1" #selectCtrl required name="profEvalName"  (change)="handle($event.target.value);">
         <option value=""></option>
         <option *ngFor="let evaluator of EvaluatorsArr; let j = index" >{{evaluator.evalname}}</option>
       </select></td>
       <span *ngIf="selectCtrl.invalid && (selectCtrl.dirty || selectCtrl.touched)" class="error">
         <span *ngIf="selectCtrl.errors.required">
-          Skills is required.
+          Evaluator is required.
         </span>
       </span>
       <td>

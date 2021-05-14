@@ -8,12 +8,10 @@
 
 nav{
     display: flex;
-}
-nav ul{
-    display: flex;
-    width: 80%;
     justify-content: space-around;
+    width: 100%;
 }
+
 li{
     list-style-type: none;
     font-size: 1rem;
@@ -21,6 +19,7 @@ li{
     margin-top: 0.5rem;
     padding: 0.8rem;
     border-radius: 25%;
+    height: fit-content;
 }
 li:hover{
     background-color: #1497ad;
@@ -42,11 +41,31 @@ nav li:focus{
 #MonthSelect{
     height: 2.3rem;
     margin: 1rem;
-    margin-left: 0;
-    width: 3rem;
+    margin-left: 0.1rem;
+    width: 5rem;
+    border-radius: 15%;
+    font-size: 13px;
+}
+#MonthSelect:hover{
+    cursor: pointer;
 }
 span{
     margin-top: 1.3rem;
-    color: black;
+    color: #fdfdfd;
     font-weight: bold;
+}
+p{
+    margin-top: 1rem;
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 12px;
+    padding: 0.8rem;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+}
+p:hover{
+    cursor: pointer;
+    background-color: #1497ad;
+    border-radius: 10%;
 }

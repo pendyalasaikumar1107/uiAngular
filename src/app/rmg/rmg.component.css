@@ -2,10 +2,12 @@ form {
     margin: 0 auto; 
     /* width: 35%; */
     padding-left: 1rem ;
-    height: auto;
+    height: fit-content;
 }
 .forButton{
-    height: 20rem;
+    /* display: contents; */
+    height: 14rem;
+    /* height: 18rem; */
 }
 /* .size{
 width: 90%;
@@ -13,10 +15,11 @@ width: 90%;
 .error{
     color: red;
     font-family: serif;
+    margin-left: 1rem;
 }
 .size{
     /* float: left; */
-    width: 18rem;
+    width: 8rem;
     margin-left: 1rem;
 }
 .btn.disabled, .btn:disabled {
@@ -33,13 +36,23 @@ label{
     margin-left: 1rem;
 }
 .label{
-    color: whitesmoke;
+    color: white;
 }
 div .form-check{
-    background-color: #efef00e6;
-    color: #f51515;
+    background-color: rgb(0 0 0 / 8%);
+    /* color: #f51515; */
+    max-width: fit-content;
     font-family: serif;
-}
-.form-group div{
+    padding-left: 2rem;
     margin-left: 1rem;
+}
+
+label{
+    color: white;
+}
+.forExp{
+    width: 5rem;
+}
+.forMobile{
+    width:8rem;
 }

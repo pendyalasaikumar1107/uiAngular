@@ -1,7 +1,7 @@
 <div class=" d-flex justify-content-around" style="padding-top: 1rem;">
   <button class="btn btn-primary " *ngFor="let evaluator of EvaluatorsArr; let i = index" (click)="reqProfiles(evaluator);">{{evaluator.evalname}}</button>
 </div>
-<div *ngIf='evaluatorProfilesArr'>
+<div *ngIf='evaluatorProfilesArr' class="container">
   <div class="card color"  *ngFor="let e_profile of evaluatorProfilesArr; let i = index" (click)="showModel(e_profile);" data-toggle="modal" data-target="#exampleModal"> 
     <div class="card-body">
       <h4 class="card-title flow">{{e_profile.name}}</h4>
@@ -14,7 +14,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade popup" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <form #newForm="ngForm">
@@ -27,13 +27,12 @@
               <option selected value="Choose status">Choose status</option>
               <option >hired</option>
               <option >not hired</option>
-              <option >Processing</option>
             </select>
             <span *ngIf="selectvalue" style="color: red; font-size: 0.9rem;">Status can not be empty</span>
           </div>  
 
 
-          <div class="form-group col-md-4" *ngIf="nothiredval">
+          <div class="form-group col-md-4 popup" *ngIf="nothiredval">
             <label for="inputState">Rejection reason</label>
             <select id="inputState" class="form-control" #reasonCtrl name="reasonselect" [(ngModel)]="clearreasonselect" required (change)="selectreason($event.target.value);">
               <option selected value="Choose status"></option>
@@ -61,7 +60,7 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary" [disabled]="buttonClick" data-dismiss="modal" (click)="sendUpdatedProfile(); newForm.resetForm() ">Save changes</button>
         </div>
-        <span *ngIf="buttonClick" style="color: red; font-size: 0.9rem;">Status or Response can not be empty</span>
+        <!-- <span *ngIf="buttonClick" style="color: red; font-size: 0.9rem;">Status or Response can not be empty</span> -->
       </form>
     </div>
   </div>

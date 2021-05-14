@@ -1,8 +1,7 @@
 import { formatDate } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ToasterService } from 'angular2-toaster';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-rmg',
   templateUrl: './rmg.component.html',
@@ -20,9 +19,7 @@ export class RMGComponent implements OnInit {
   skill2="";
   skill3="";
   
-  private toasterService:ToasterService;
-  constructor(public http:HttpClient, toasterService:ToasterService) {
-    this.toasterService = toasterService;
+  constructor(public http:HttpClient, private ts:ToastrService) {
    }
 
   checked:boolean= false;
@@ -56,13 +53,19 @@ export class RMGComponent implements OnInit {
     "skill1": this.skill1,
     "skill2": this.skill2,
     "skill3": this.skill3,
-    "date" : this.cValue
+    "date" : this.cValue,
     }
 
     console.log(this.cValue);
     console.log(this.obj)
     this.http.post("http://localhost:8080/addProfile", this.obj, {responseType: 'text' }).subscribe((data) =>{
-      alert(data);
+      if (data === 'success'){
+        this.ts.success("Profile Uploaded",'title');
+      }
+      if(data === 'Sorry'){
+        this.ts.error("Profile with same ID already exists");
+      }
+    // alert(data);
       // console.error(data);
       // this.toasterService.pop('success',data);
     },(err)=>{

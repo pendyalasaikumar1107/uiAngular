@@ -18,7 +18,8 @@ ngDoCheck(): void {
     //Called every time that the input properties of a component or a directive are checked. Use it to extend change detection by performing a custom check.
     //Add 'implements DoCheck' to the class.
     this.totalHired = this.dataArr1;
-    // console.log("leng",this.dataArr,"Hired",this.totalHired);
+
+    // console.log("leng",this.dataArr1,"Hired",this.totalHired);
 }
 ngOnInit(): void {
     setTimeout(()=>{

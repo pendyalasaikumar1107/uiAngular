@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~ngx-toastr/toastr';
 @font-face {
     font-family: myFont;
     src: url(https://www.flysas.com/v2/cms-s4s-elements/assets/fonts/ScandinavianNew-Regular.woff2);
