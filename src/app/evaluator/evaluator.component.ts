@@ -11,6 +11,7 @@ import { AppService } from '../app.service';
 export class EvaluatorComponent implements OnInit {
   EvaluatorsArr: any[];
   data={};
+  edit = false;
   clearselect = "Choose Status";
   clearreasonselect= '';
   cleartext = '';
@@ -32,6 +33,7 @@ export class EvaluatorComponent implements OnInit {
   textvalue1;
   selectvalue1;
   evaluator: any;
+  profileId;
 
   // ngDoCheck(): void {
   //   //Called every time that the input properties of a component or a directive are checked. Use it to extend change detection by performing a custom check.
@@ -59,6 +61,7 @@ export class EvaluatorComponent implements OnInit {
         return person;
       });
     }) 
+    
   }
   showModel(profile){
     this.data = profile;
@@ -80,18 +83,22 @@ export class EvaluatorComponent implements OnInit {
     });
   }
 
-  sendUpdatedProfile(){
-    console.log(this.evalid['evalid']);
-    this.updatedProfile['id'] = this.data['id'];
-    // this.updatedProfile['name'] = this.data['name'];
-    console.log("DATA ",this.updatedProfile['comments']);
+  sendUpdatedProfile(profile){
+    this.edit = false;
+    this.nothiredval = false;
+    this.textareaval = true;
+    // console.log(this.evalid['evalid']);
+    // console.log("Profile Id",profile.id)
+    this.updatedProfile['id'] = profile.id;
+    // console.log("DATA ",this.updatedProfile['comments']);
+    console.log(this.updatedProfile);
     if(this.updatedProfile['status']==='hired' || this.updatedProfile['status'] === 'not hired'){
       if(this.updatedProfile['comments'] ===''){
         this.ts.warning("Please fill status and comments",'title');
       }
       else{
         this.http.put("http://localhost:8080/statusupdate",this.updatedProfile,{responseType: 'text' }).subscribe((data)=>{
-          setTimeout(()=>{this.ts.success(data);},500);
+            this.ts.success(data);
           // this.reqProfiles(this.evalid['evalid']);
           this.service.getEval(this.evalid['evalid']).subscribe((evaluatorData)=>{
             this.evaluatorProfilesArr = Object.keys(evaluatorData).map(index => {
@@ -99,9 +106,6 @@ export class EvaluatorComponent implements OnInit {
               return e_person;
             })
           });
-          this.clearselect = '';
-          this.clearreasonselect= '';
-          this.cleartext = '';
         });
       }
     }
@@ -159,6 +163,14 @@ export class EvaluatorComponent implements OnInit {
     }
     console.log(value);
     // this.updatedProfile['comments'] = value;
+  }
+  editFilds(profile){
+    // console.log('Before Edit',this.edit);
+    this.edit = true;
+    // console.log('After Edit',this.edit);
+    console.log("Edit",profile);
+    this.profileId = profile.id;
+    console.log(this.profileId);
   }
 }
 

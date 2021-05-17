@@ -1,7 +1,8 @@
 <div class=" d-flex justify-content-around" style="padding-top: 1rem;">
-  <button class="btn btn-primary " *ngFor="let evaluator of EvaluatorsArr; let i = index" (click)="reqProfiles(evaluator);">{{evaluator.evalname}}</button>
+  <button class="btn btn-info " *ngFor="let evaluator of EvaluatorsArr; let i = index" (click)="reqProfiles(evaluator);">{{evaluator.evalname}}</button>
 </div>
-<div *ngIf='evaluatorProfilesArr' class="container">
+<br>
+<!-- <div *ngIf='evaluatorProfilesArr' class="container">
   <div class="card color"  *ngFor="let e_profile of evaluatorProfilesArr; let i = index" (click)="showModel(e_profile);" data-toggle="modal" data-target="#exampleModal"> 
     <div class="card-body">
       <h4 class="card-title flow">{{e_profile.name}}</h4>
@@ -12,9 +13,72 @@
       <p class="card-text flow">Skills: {{e_profile.skill1}},{{e_profile.skill2}},{{e_profile.skill3}}</p>
     </div>
   </div>
-</div>
+</div> -->
 
-<div class="modal fade popup" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>vendor</th>
+      <th>Contact</th>
+      <th>Location</th>
+      <th>Experience</th>
+      <th>Skills</th>
+      <th>edit</th>
+      <div *ngIf='edit'>
+        <th>Status</th>
+        <th *ngIf="nothiredval">Rejection reason</th>
+        <th *ngIf="textareaval">Response /Comments</th>
+        <th></th>
+      </div>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let profile of evaluatorProfilesArr let i = index">
+      <td>{{profile.id}}</td>
+      <td>{{profile.name}}</td>
+      <td>{{profile.vendor}}</td>
+      <td>{{profile.mobileno}}</td>
+      <td>{{profile.location}}</td>
+      <td>{{profile.experience}}</td>
+      <td>{{profile.skill1}}, {{profile.skill2}}, {{profile.skill3}}</td>
+      <td>
+        <button class="btn btn-warning" (click)='editFilds(profile);'>Edit</button>
+      </td>
+      <!-- <span *ngIf='profile.id'>{{profile.id}}</span> -->
+      <div *ngIf='edit'>
+        <div *ngIf='evaluatorProfilesArr[i].id === profileId'>
+            <td>
+              <select id="inputState" class="form-control" #selectCtrl name="selectstatus" name="selectStatus" required (change)="select($event.target.value);">
+              <option selected value="Choose status">Choose status</option>
+              <option >hired</option>
+              <option >not hired</option>
+              </select> 
+            </td>
+            <td *ngIf="nothiredval">
+              <select id="inputState" class="form-control" #reasonCtrl name="reasonselect" required (change)="selectreason($event.target.value);">
+                <option selected value="Choose status"></option>
+                <option >Too junior</option>
+                <option >Competency gap</option>
+                <option >Skills mismatch</option>
+                <option>not Available</option> 
+                <option>Associate not willing to Join</option> 
+              </select> 
+            </td>
+            <td *ngIf="textareaval">
+              <input type="text" id="form18" class="md-textarea form-control" rows="3" #textareaCtrl placeholder="Enter Comments" required (keyup)="textarea($event.target.value);">
+            </td>
+            <td>
+              <button type="submit" class="btn btn-primary" [disabled]="buttonClick" data-dismiss="modal" (click)="sendUpdatedProfile(profile); ">Update</button>
+            </td>
+          </div>
+        </div>
+    </tr>
+  </tbody>
+</table>
+
+<!-- <div class="modal fade popup" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <form #newForm="ngForm">
@@ -52,16 +116,18 @@
             <textarea id="form18" class="md-textarea form-control" rows="3" [(ngModel)]="cleartext" #textareaCtrl required (keyup)="textarea($event.target.value);"></textarea>
             <span *ngIf="textValue" style="color: red; font-size: 0.9rem;">Response can not be empty</span>
           </div>
-          <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
-          </button> -->
+          </button>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary" [disabled]="buttonClick" data-dismiss="modal" (click)="sendUpdatedProfile(); newForm.resetForm() ">Save changes</button>
         </div>
-        <!-- <span *ngIf="buttonClick" style="color: red; font-size: 0.9rem;">Status or Response can not be empty</span> -->
+        <span *ngIf="buttonClick" style="color: red; font-size: 0.9rem;">Status or Response can not be empty</span>
       </form>
     </div>
   </div>
-</div>
+</div> -->
+
+

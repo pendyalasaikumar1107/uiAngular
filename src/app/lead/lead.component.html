@@ -1,8 +1,6 @@
-<!-- <app-filter class="bg-color"></app-filter> -->
 <nav>
   <ul (click)="gettodayValue($event)">
     <li><span class="colr">today</span></li>
-    <!-- <li><span class="colr">weekly</span></li> -->
   </ul>
   <select id="MonthSelect" placeholder="Monthly" (change)="MonthFilter($event.target.value);">
     <option name="" value="" style="display:none;">Monthly</option>
@@ -19,7 +17,9 @@
     <option name="November" value="11">November</option>
     <option name="December" value="12">December</option>
   </select>
-  <p (click)='clearFilter();'>clear filter</p>
+  <i class="material-icons close" (click)='clearFilter();'>
+    close
+  </i>
 </nav>
 <br>
 <div class="chart d-flex justify-content-around">
@@ -39,7 +39,7 @@
 </div>
 <br>
 <table class="table">
-  <thead Sclass="thead-light">
+  <thead class="thead-light">
     <tr>
       <!-- <th scope="col" *ngFor="let key of Keys">{{key}}</th> -->
       <th>ID</th>

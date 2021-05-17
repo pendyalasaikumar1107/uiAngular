@@ -18,16 +18,17 @@ li{
     font-weight: bold;
     margin-top: 0.5rem;
     padding: 0.8rem;
-    border-radius: 25%;
     height: fit-content;
+    border-radius: 20%;
+    box-shadow: 3px 3px 10px 1px;
 }
 li:hover{
-    background-color: #1497ad;
+    /* background-color: #1497ad; */
     cursor: pointer;
-    color: whitesmoke;
+    /* color: whitesmoke; */
 }
 nav li:focus{
-    background-color: #1497ad;
+    /* background-color: #1497ad; */
     cursor: pointer;
     color: whitesmoke;
 }
@@ -45,6 +46,7 @@ nav li:focus{
     width: 5rem;
     border-radius: 15%;
     font-size: 13px;
+    box-shadow: 3px 3px 10px 1px;
 }
 #MonthSelect:hover{
     cursor: pointer;
@@ -54,18 +56,20 @@ span{
     color: #fdfdfd;
     font-weight: bold;
 }
-p{
+.close{
     margin-top: 1rem;
-    color: white;
+    color: rgb(0, 0, 0);
     margin-bottom: 1rem;
-    font-size: 12px;
     padding: 0.8rem;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
+    
 }
-p:hover{
+.close:hover{
     cursor: pointer;
-    background-color: #1497ad;
-    border-radius: 10%;
+}
+
+nav li{
+    box-shadow: 1px 2px 10px 1px;
 }
