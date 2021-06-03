@@ -1,0 +1,103 @@
+.table{
+    background-color: #f0ffff91;
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: red;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+li{
+    list-style-type: none;
+    font-size: 1rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    border-radius: 20%;
+    background-color: white;
+    float: left;
+    /* box-shadow: 3px 3px 10px 1px; */
+}
+li:hover{
+    /* background-color: #1497ad; */
+    cursor: pointer;
+    /* color: whitesmoke; */
+}
+nav li:focus{
+    /* background-color: #1497ad; */
+    cursor: pointer;
+    color: whitesmoke;
+}
+.nav-link{
+    color: black;
+    padding: 0;
+}
+.nav-link:hover{
+    color: whitesmoke;
+}
+#MonthSelect{
+    height: 2.3rem;
+    margin: 1rem;
+    margin-left: 0.1rem;
+    width: 5rem;
+    border-radius: 15%;
+    font-size: 13px;
+    /* box-shadow: 3px 3px 10px 1px; */
+}
+#MonthSelect:hover{
+    cursor: pointer;
+}
+span{
+    margin-top: 1.3rem;
+    color: #000000;
+}
+.closefilter{
+    margin-top: 1rem;
+    color: rgb(255, 255, 255);
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    
+}
+.closefilter:hover{
+    cursor: pointer;
+}
+
+.clear{
+    clear: both;
+}
+.filter{
+    font-size: 1rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    /* height: fit-content;
+    border-radius: 20%;
+    background-color: white;
+    float: left; */
+}
+.colr{
+    list-style-type: none;
+    font-size: 1rem;
+    margin-top: 1rem;
+    color: black;
+    padding: 0.5rem;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    border-radius: 20%;
+    background-color: white;
+}
+.btn{
+    margin-bottom: 1rem;
+}

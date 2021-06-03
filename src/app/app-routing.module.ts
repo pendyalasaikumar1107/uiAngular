@@ -1,16 +1,16 @@
-import { EvaluatorComponent } from './evaluator/evaluator.component';
-import { LeadComponent } from './lead/lead.component';
-import { RMGComponent } from './rmg/rmg.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {path:"", component:LeadComponent},
-  {path: "rmg", component: RMGComponent},
-  {path: "lead", component: LeadComponent},
-  {path: "lead/:date", component: LeadComponent},
-  {path: "evaluate", component: EvaluatorComponent},
-  {path: "evaluate/:id", component: EvaluatorComponent}
+  {path: 'login', component: LoginComponent},
+  { path: 'lead', loadChildren: () => import('./features/lead/lead.module').then(m => m.LeadModule) },
+  { path: '', component: HomeComponent },
+  { path: 'lead/:date', loadChildren: () => import('./features/lead/lead.module').then(m => m.LeadModule) },
+  { path: 'rmg', loadChildren: () => import('./features/rmg/rmg.module').then(m => m.RmgModule) },
+  { path: 'evaluator', loadChildren: () => import('./features/evaluator/evaluator.module').then(m => m.EvaluatorModule) },
+  { path: 'evaluator/:id', loadChildren: () => import('./features/evaluator/evaluator.module').then(m => m.EvaluatorModule) },
 ];
 
 @NgModule({

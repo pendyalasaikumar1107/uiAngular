@@ -1,0 +1,10 @@
+<div class="main">
+  <p class="sign">Sign in</p>
+  <form class="form1">
+    <input class="un " type="email" #email  placeholder="Username" value="rmg@rmg.com">
+    <input class="pass" type="password" #password placeholder="Password" value="rmg123">
+    <button class="submit" (click)="login(email.value,password.value)">Sign in</button>
+    <!-- <a class="submit" >Sign in</a> -->
+    <p class="forgot"><a href="#">Forgot Password?</a></p>
+  </form>            
+</div>

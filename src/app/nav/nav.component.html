@@ -13,7 +13,13 @@
                 <a class="nav-link" routerLink="/lead">Lead</a>
             </li>
             <li class="">
-                <a class="nav-link" routerLink="/evaluate">Evaluator</a>
+                <a class="nav-link" routerLink="/evaluator">Evaluator</a>
+            </li>
+            <li *ngIf="!isLoggedIn">
+                <a class="nav-link" routerLink="/login">sign in</a>
+            </li>
+            <li *ngIf="isLoggedIn">
+                <a class="nav-link logout" (click)="logout()">logout</a>
             </li>
         </ul>
     </div>

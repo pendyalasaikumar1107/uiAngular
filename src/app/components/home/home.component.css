@@ -1,0 +1,27 @@
+
+img {
+    max-width: 60%;
+    height: auto;
+    margin-left: 1rem;
+    border-radius: 1rem;
+}
+.container{
+    margin-top: 3rem;
+    background-color: white;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    align-items: center;
+    margin: 2rem 10% 0rem 10%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border-radius: 1rem;
+}
+.context{
+    margin-left: 2rem;
+    width: 18rem;
+    text-align: justify;
+}
+.text h4{
+    margin: 1rem 1rem 1rem 1rem;
+}
